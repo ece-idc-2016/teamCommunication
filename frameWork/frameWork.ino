@@ -1,30 +1,13 @@
 #include <SoftwareSerial.h>
 const int TxPin = 9;
 SoftwareSerial mySerial = SoftwareSerial(255, TxPin);
-// int pingPin = 2; 
 // XBEE
- #define Rx 2 // DOUT to pin 2
+ #define Rx 2 // DOUT to pin 2- THIS WILL PROBABLY CHANGE
 #define Tx 8 // DIN to pin 8
 SoftwareSerial Xbee (Rx, Tx);
-// char ledVal=' ';
-// int k=0;
-// int g1 = 75; // worked at 25.
- // int led1=A0;
-// int led2=A1;
-
-
+char ledVal=0; // define ledVal to be zero 
 void setup() {
     // XBEE stuff here; CONFIGURE THIS TO YOUR SPECIFICATIONS 
-
-    // #include <SoftwareSerial.h>
-    
-#define Rx 10 // DOUT to pin 10
-#define Tx 11 // DIN to pin 11
-int cm=15; // this may vary based on your hardware configuration. 
-
-int ledVal=' ';
-const int TxPin = 9;
-// SoftwareSerial mySerial = SoftwareSerial(255, TxPin);
  Serial.begin(9600); // Set to No line ending;
  Serial.println("here we go!");
   Xbee.begin(9600); // type a char, then hit enter
@@ -32,24 +15,21 @@ const int TxPin = 9;
   pinMode(TxPin, OUTPUT);
   digitalWrite(TxPin, HIGH);
   mySerial.begin(9600);
-  // pinMode(enablePin, OUTPUT);
-  // pinMode(led1,OUTPUT);
-  // pinMode(led2,OUTPUT);
+
+
 
 }
 
 
 void loop() {
   // put your main code here, to run repeatedly:
- int cm=15; 
 Serial.println("code is working");
 
-/*
  // ####### COPY CODE BELOW THIS LINE TO WHEREVER COMMUNICATION HAPPENS IN YOUR CODE 
 int ledVal=' ';
 int k=0;
     // communicate what we've found 
-      if (cm > 30) // if 3-pointer... 
+      if (cm > 30) // if 3-pointer..  . 
      {
          ledVal='m'; // return 0 
          // do something 
@@ -113,10 +93,8 @@ mySerial.write(12); // clear
 }
 
 Xbee.print(ledVal);
-*/
 
-Xbee.print('!');
-delay(20);
+
 // ##### DON'T COPY ANYTHING BELOW THIS LINE 
 }
 
