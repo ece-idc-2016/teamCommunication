@@ -26,70 +26,63 @@ void loop() {
 Serial.println("code is working");
 
  // ####### COPY CODE BELOW THIS LINE TO WHEREVER COMMUNICATION HAPPENS IN YOUR CODE 
+
+ 
 int ledVal=' ';
 int k=0;
-    // communicate what we've found 
-      if (cm > 30) // if 3-pointer..  . 
-     {
-         ledVal='m'; // return 0 
-         // do something 
-          // analogWrite(A0,255); // OR DON'T
-           mySerial.write(12);                 // Clear    
-          mySerial.write(17);                 // Turn backlight on
-          delay(5);                           // Require  d delay
-          mySerial.print("GOOOOOOLLD");  // First line    
-          Serial.println("gold");
-            Xbee.print(ledVal);
-          
-      }
-      else if (cm >= 20 && cm <= 30) // if a two-pointer...
-      {
-       ledVal='n'; // return 1
-       // do something 
-       // analogWrite(A1,255); // OR DON'T 
-        mySerial.write(12);                 // Clear    
-          mySerial.write(17);                 // Turn backlight on
-          delay(5);                           // Require  d delay
-          mySerial.print("SILVER");  // First line    
-            Xbee.print(ledVal);
-      }
-      else if(cm < 20)
-      {
-        ledVal='o';
-        // do something 
-           // analogWrite(A1,255);
-           // analogWrite(A0,255);
-            mySerial.write(12);                 // Clear    
-          mySerial.write(17);                 // Turn backlight on
-          delay(5);
-          Xbee.print(ledVal);// Require  d delay
-          mySerial.print("...bronze.");  // First line    
-        
-      }
 
-// communications time 
- // char outgoing = 's'; // sets outgoing character to s
-    while(k<5){
-    Xbee.print(ledVal);
-    // Xbee.print('o');
-    delay(10);
-    k+=1;
-    Serial.println("sending");
-    mySerial.write(12); // clear 
-    mySerial.println("Sending...");
-    }
- // wait for a bit 
+// #### YOU NEED TO COMMUNICATE YOUR STUFF ON YOUR OWN THAT'S NOT EVERYONE ELSE'S PROBLEM ("though I'll gladly help" -Jeffrey) 
+   
 
- delay(100); // wait ten seconds or so
+
+// #### HOW TO RECEIVE COMMUNICATIONS STUFF: 
+
+ // delay(100); // wait ten seconds or so
 
  if(Xbee.available()) { // Is data a vailable from XBee?
     char incoming = Xbee.read(); // Read character,
-    // Serial.println(incoming); // send to Serial Monitor
-mySerial.write(12); // clear 
-    mySerial.write(17);
+    Serial.println(incoming); // send to Serial Monitor for debugging purposes
     delay(5);
-    mySerial.print(incoming); // print whatever we've got 
-    Serial.println(incoming);
+// a bunch of if statements for converting characters to binary: 
+
+int a=0; // "there's probably a cleaner way to do this but whatever" ~jeffrey
+int b=0; 
+int c=0; 
+int d=0; 
+int e=0; 
+int f=0; 
+int g=0; 
+int h=0; 
+int i=0; 
+int j=0; 
+int k=0; 
+int l=0; 
+int m=0; 
+int n=0; 
+int o=0; 
+
+//  int {a,b,c,d,e,f,g,h,i,j,k,l,m,n,o},=0; 
+
+if(incoming=='a'){
+    a=1;
+}
+else if(incoming=='b'){
+    b=1;
+}
+else if(incoming=='c'){
+    c=1; // ...you get the point. will add in other letters once I figure out if this actually works. 
+}
+
+int sum=a+b+c; // gotta add 'em all!
+int x=sum % 2; // modulus 
+
+
+// ...and then I think the rest would come under the category of "do it yourself mate" 
+
+
+
+
+
 }
 
 Xbee.print(ledVal);
