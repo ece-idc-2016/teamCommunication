@@ -45,36 +45,18 @@ int k=0;
     delay(5);
 // a bunch of if statements for converting characters to binary: 
 
-int a=0; // "there's probably a cleaner way to do this but whatever" ~jeffrey
-int b=0; 
-int c=0; 
-int d=0; 
-int e=0; 
-int f=0; 
-int g=0; 
-int h=0; 
-int i=0; 
-int j=0; 
-int k=0; 
-int l=0; 
-int m=0; 
-int n=0; 
-int o=0; 
-
-//  int {a,b,c,d,e,f,g,h,i,j,k,l,m,n,o},=0; 
-
-if(incoming=='a'){
-    a=1;
-}
-else if(incoming=='b'){
-    b=1;
-}
-else if(incoming=='c'){
-    c=1; // ...you get the point. will add in other letters once I figure out if this actually works. 
-}
-
-int sum=a+b+c; // gotta add 'em all!
-int x=sum % 2; // modulus 
+int value = 0; // this is patricia's doing it's probably good
+    if (incoming == 'a' || incoming == 'd' || incoming == 'g' || incoming == 'j' || incoming == 'm') {
+      value = value+2;
+    }
+    else if (incoming == 'b' || incoming == 'e' || incoming == 'h' || incoming == 'k' || incoming == 'n') {
+      value++;
+    }
+    else if (incoming == 'c' || incoming == 'f' || incoming == 'i' || incoming == 'l' || incoming == 'o') {
+     //value + 0;
+    }
+    
+int x = value % 2; // modulus
 
 
 // ...and then I think the rest would come under the category of "do it yourself mate" 
